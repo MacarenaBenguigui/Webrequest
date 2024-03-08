@@ -77,11 +77,11 @@ def get_response(user_input):
 
 #app config
 st.set_page_config (page_title= "InnevaChatBot", page_icon = ":desktop_computer:")
-st.title ("Chat with website")
+st.title ("InnevaChatBot")
 
 if "chat_hystory" not in st.session_state:
     st.session_state.chat_hystory = [
-        AIMessage(content = "Hello, I am a bot. How can I help you?"),
+        AIMessage(content = "¿Que puedo hacer por ti hoy?"),
     ]
 
 #sidebar
