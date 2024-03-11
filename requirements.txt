@@ -125,7 +125,7 @@ langsmith==0.0.92
     #   langchain
     #   langchain-community
     #   langchain-core
-llama-index
+llama-index==0.9.48
 lz4==4.3.3
     # via clickhouse-connect
 markdown-it-py==3.0.0
