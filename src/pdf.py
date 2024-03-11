@@ -10,6 +10,8 @@ from llama_index.llms.openai import OpenAI
 from llama_index.core import StorageContext, VectorStoreIndex, load_index_from_storage
 from llama_index.readers.file import PDFReader
 
+load_dotenv()
+
 #Carga de PDFs
 def get_index(data, index_name):
     index = None
@@ -54,9 +56,15 @@ agent = ReActAgent.from_tools(tools, llm = llm, verbose =True, context= context)
 
 
 # Interfaz de usuario para ingreso de consultas
-st.set_page_config (page_title= "InnevaChatBot", page_icon = ":desktop_computer:")
+st.set_page_config (page_title= "InnevaChatBot", page_icon = ":desktop_computer:", layout="wide")
 st.title ("InnevaChatBot:desktop_computer:")
-
+hide_streamlit_style = """
+            <style>
+            #[data-testid="stToolbar"] {visibility: hidden !important;}
+            footer {visibility: hidden !important;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 # Usa la clave 'query_input' para manejar el estado del input del usuario
 user_query = st.text_input("¿En que puedo ayudarte hoy?")
 
@@ -76,13 +84,6 @@ if user_query:  # Asegúrate de que el campo de consulta no esté vacío
 
 # Muestra las consultas y respuestas previas
 for pair in st.session_state['queries']:
-    st.markdown(f":speech_balloon: :{pair['query']}")
-    st.markdown(f":robot_face: :{pair['response']}")
-    st.markdown('''
-<style>
-.stApp [data-testid="stToolbar"]{
-    display:none;
-}
-</style>
-''', unsafe_allow_html=True)
+    st.markdown(f":speech_balloon: {pair['query']}")
+    st.markdown(f":robot_face: {pair['response']}")
     st.write("---")  # Solo para añadir una línea divisoria por estética
