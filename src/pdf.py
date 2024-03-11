@@ -61,7 +61,8 @@ st.title ("InnevaChatBot:desktop_computer:")
 hide_streamlit_style = """
             <style>
             [data-testid="stToolbar"] {visibility: hidden !important;}
-            footer {visibility: hidden !important;}
+            #MainMenu {visibility: hidden;}
+            #footer {visibility: hidden !important;}
             header {visibility: hidden;}
             </style>
             """
