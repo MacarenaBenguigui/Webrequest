@@ -57,7 +57,6 @@ agent = ReActAgent.from_tools(tools, llm = llm, verbose =True, context= context)
 st.set_page_config (page_title= "InnevaChatBot", page_icon = ":desktop_computer:")
 st.title ("InnevaChatBot:desktop_computer:")
 
-
 # Usa la clave 'query_input' para manejar el estado del input del usuario
 user_query = st.text_input("¿En que puedo ayudarte hoy?")
 
@@ -79,4 +78,11 @@ if user_query:  # Asegúrate de que el campo de consulta no esté vacío
 for pair in st.session_state['queries']:
     st.markdown(f":speech_balloon: :{pair['query']}")
     st.markdown(f":robot_face: :{pair['response']}")
+    st.markdown('''
+<style>
+.stApp [data-testid="stToolbar"]{
+    display:none;
+}
+</style>
+''', unsafe_allow_html=True)
     st.write("---")  # Solo para añadir una línea divisoria por estética
