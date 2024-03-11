@@ -60,7 +60,7 @@ st.set_page_config (page_title= "InnevaChatBot", page_icon = ":desktop_computer:
 st.title ("InnevaChatBot:desktop_computer:")
 hide_streamlit_style = """
             <style>
-            #[data-testid="stToolbar"] {visibility: hidden !important;}
+            [data-testid="stToolbar"] {visibility: hidden !important;}
             footer {visibility: hidden !important;}
             </style>
             """
