@@ -49,7 +49,7 @@ tools = [
 ]
 
 
-llm = OpenAI(model = "gpt-4")
+llm = OpenAI(model = "gpt-3.5-turbo-16k")
 agent = ReActAgent.from_tools(tools, llm = llm, verbose =True, context= context)
 
 
