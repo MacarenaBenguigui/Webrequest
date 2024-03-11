@@ -1,4 +1,5 @@
 import streamlit as st
+from PyPDF2 import PdfReader
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -77,11 +78,11 @@ def get_response(user_input):
 
 #app config
 st.set_page_config (page_title= "InnevaChatBot", page_icon = ":desktop_computer:")
-st.title ("Chat with website")
+st.title ("InnevaChatBot:desktop_computer:")
 
 if "chat_hystory" not in st.session_state:
     st.session_state.chat_hystory = [
-        AIMessage(content = "Hello, I am a bot. How can I help you?"),
+        AIMessage(content = "¿Que puedo hacer por ti hoy?"),
     ]
 
 #sidebar
